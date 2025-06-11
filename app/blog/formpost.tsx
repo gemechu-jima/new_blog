@@ -5,7 +5,7 @@ import Input from '../ui/Input'
 import Select from '../ui/Select'
 import TextArea from '../ui/textArea'
 import Button from '../ui/Button'
-import WrapImage from '../ui/Image'
+
 export default function formpost() {
   const handleOnChange = (ev: any) => {
     ev.preventDefault()
@@ -52,14 +52,14 @@ export default function formpost() {
           name='Upload' />
         {1 < 0 ?
           (
-            <WrapImage>
+         
               <Image
                 src="/profile.png"
                 alt="Picture of the author"
                 width={500}
                 height={500}
               />
-            </WrapImage>
+           
           )
           : (<p>Please Upload Image</p>)}
           <div className='flex justify-between'>

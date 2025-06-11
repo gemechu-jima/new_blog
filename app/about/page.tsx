@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { Services, experience } from '../utils/db';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 export default function About() {
   return (
     <div className='w-[90%] mx-auto  mt-30 pb-10'>
@@ -83,9 +84,32 @@ export default function About() {
         <Image src={'/assets/images/team-2.jpg'} alt="" fill className="object-cover rounded-2xl " />
         <div className='w-full h-full bg-black/80 absolute  flex items-center flex-col gap-3 justify-center'>
           <h1 className='text-white text-2xl font-extrabold'>Testimonial</h1>
-          <div className='bg-white chat '>
+          <h2 className='text-4xl text-white'>Feedback from Honest Optionaa</h2>
+          <div className='bg-white p-8 rounded-e-xl rounded-ss-xl flex  gap-3'>
+            <p className='border-r-4 border-r-blue-800 p-2 text-blue-600'><AutoAwesomeIcon/></p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas corporis tempore nostrum sapiente perferendis inventore libero dolorum obcaecati laboriosam blanditiis.</p>
           </div>
+          <div className='flex gap-3'>
+            {Array(5).fill(0).map((_, i)=>(
+              <Image key={i} src={"/assets/images/female.jpg"} alt='' width={40} height={40} className='w-10 h-10 rounded-full'/>
+            ))}
+          </div>
+        </div>
+      </div>
+      {/* Our team */}
+      <div className='mt-10 text-center pb-3'>
+        <h2 className='text-sky-500'>Our Team</h2>
+        <p className='text-4xl'>Our Dedicated Team </p>
+        <div className='w-[60%] mx-auto flex gap-5 mt-10'>
+          {Array(5).fill(0).map((_, i)=>(
+           <div key={i}>
+             <Image key={i} src={"/assets/images/men2.jpg"} alt='' width={400} height={400} 
+             className='w-40 h-40 rounded-sm'/>
+             <h2 className='text-2xl font-bold'>Jonathon John</h2>
+             <p className='text-gray-700'>Professional</p>
+             <span> <button className='bg-sky-500 rounded-md p-2 text-white'>more details </button> 123 5</span>
+           </div>
+          ))}
         </div>
       </div>
     </div>
