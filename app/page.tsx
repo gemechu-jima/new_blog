@@ -11,10 +11,10 @@ export default function Home() {
     <div className=" h-auto pb-10">
       <div className="h-10"/>
       <main className="flex flex-col sm:flex-row gap-[12px] w-[90%] mx-auto bg-gray-200 shadow-md px-1.5       rounded-2xl">
-        <div className="basic-1/2 bg-slate-400 text-center relative">
+        <div className="flex-1 bg-slate-400 text-center relative">
          <Carousel/>
         </div>
-        <div className="basic-1/2  ">
+        <div className="flex-1 ">
         <div className="w-full flex items-center ">
           <button className={`flex-1/2 ${color?"bg-yellow-500":"bg-gray-500"} p-3`} onClick={()=>setColor(true)}>Latest</button>
           <button className={`flex-1/2 ${color?"bg-gray-500":"bg-yellow-500"} p-3`} onClick={()=>setColor(false)}>Popular</button>

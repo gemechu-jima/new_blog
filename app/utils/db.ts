@@ -1,4 +1,10 @@
-
+import WebIcon from '@mui/icons-material/Web';
+import DesignServicesIcon from '@mui/icons-material/DesignServices';
+import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
+import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
+import KeyIcon from '@mui/icons-material/Key';
+import Groups2Icon from '@mui/icons-material/Groups2';
+import HttpsIcon from '@mui/icons-material/Https';
 const data=[
     {
         id:1,
@@ -113,4 +119,59 @@ export const sampleData=[
     link: "https://ethiopianbusinessreview.net/ethiopia-breaks-coffee-export-record-earning-usd-1-87-billion/",
     author: "Addis Business"
   }
+]
+
+export const Services=[
+  {
+    id:1,
+    name:"Web Development",
+    icon:WebIcon,
+    title:"Web Development",
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dignissimos nisi enim quasi asperiores"
+  },
+    {
+    id:2,
+    name:"Web Designer",
+    icon:DesignServicesIcon,
+    title:"Web Designer",
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dignissimos nisi enim quasi asperiores"
+  },
+    {
+    id:3,
+    name:"Services",
+    icon:CleaningServicesIcon,
+    title:"service",
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dignissimos nisi enim quasi asperiores"
+  },
+]
+
+export const experience=[
+  {
+    id:1,
+    name:"Proven Track Record",
+    icon:AssignmentTurnedInIcon,
+    title:"Proven Track Record",
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dignissimos nisi enim quasi asperiores"
+  },
+  {
+    id:2,
+    name:"24/7 Support",
+    icon:KeyIcon,
+    title:"24/7 Support",
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dignissimos nisi enim quasi asperiores"
+  },
+   {
+    id:3,
+    name:"Expert Team",
+    icon:Groups2Icon,
+    title:"Expert Team",
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dignissimos nisi enim quasi asperiores"
+  },
+   {
+    id:4,
+    name:"Relaible & Secure",
+    icon:HttpsIcon,
+    title:"Relaible & Secure",
+    description:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto dignissimos nisi enim quasi asperiores"
+  },
 ]

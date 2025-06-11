@@ -23,7 +23,7 @@ export default function Carousel() {
   }, [indexImage]);
 
   return (
-    <div className='relative w-[500px] h-[500px] overflow-hidden '>
+    <div className='relative w-full h-full overflow-hidden '>
       {sampleData.map((item, index) =>
         index + 1 === indexImage ? (
           <Image
@@ -42,9 +42,9 @@ export default function Carousel() {
         className='absolute  right-1 bg-gray-900 text-white text-3xl rounded-full inset-y-1/2 cursor-pointer' />
      {sampleData.map((item, index) =>
         index + 1 === indexImage ? (
-        <Link href={item.link} key={item.id} className="absolute bottom-0 left-0 w-full bg-black opacity-50  text-white">
-          <button className="bg-gray-500 px-5 py-1 border-2 border-amber-50 rounded-xl cursor-pointer">{item.title}</button>
-        <p >{item.introduction}</p>
+        <Link href={item.link} key={item.id} className="absolute bottom-0 left-0 w-full bg-black opacity-50  text-white ">
+          <button className="bg-gray-800 px-5 py-1 border-2 border-amber-50 rounded-xl cursor-pointer text-white">{item.title}</button>
+        <p className='text-white opacity-100' >{item.introduction}</p>
         </Link>
         ) :null
      )}
