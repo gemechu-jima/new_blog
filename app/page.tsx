@@ -8,10 +8,10 @@ import Popular from "./component/Popular";
 export default function Home() {
    const [color, setColor]=useState(false)
   return (
-    <div className=" h-auto pb-10">
+    <div className=" dark:bg-gray-900 h-auto pb-10">
       <div className="h-10"/>
-      <main className="flex flex-col sm:flex-row gap-[12px] w-[90%] mx-auto bg-gray-200 shadow-md px-1.5       rounded-2xl">
-        <div className="flex-1 bg-slate-400 text-center relative">
+      <main className="flex flex-col sm:flex-row gap-[12px] w-[90%] mx-auto  shadow-md px-1.5       rounded-2xl">
+        <div className="flex-1  text-center relative">
          <Carousel/>
         </div>
         <div className="flex-1 ">

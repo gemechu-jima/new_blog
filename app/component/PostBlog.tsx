@@ -7,7 +7,7 @@ export default function PostBlog() {
 
             {
                 sampleData.map((item) => (
-                    <div className='bg-white p-4 h-full w-full flex flex-col justify-center items-center relative' key={item.id}>
+                    <div className=' p-4 h-full w-full flex flex-col justify-center items-center relative' key={item.id}>
                         <div className="w-full max-w-[500px] max-h-[200px] aspect-square relative">
                             <Image
                                 src={item.image}

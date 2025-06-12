@@ -36,7 +36,7 @@ export default function About() {
         <p>Lorem ipsum dolor sit amet, consectetur</p>
         <div className='grid sm:grid-cols-2 md:grid-cols-3 grid-cols-1  gap-6 mt-10'>
           {Services.map((item, index) => (
-            <div key={item.id} className='w-full flex flex-col items-center rounded-2xl shadow-2xl bg-slate-50 hover:border-sky-600 hover:border-b-4 hover:border-x-2'>
+            <div key={item.id} className='w-full flex flex-col items-center rounded-2xl shadow-2xl dark:bg-white bg-black dark:text-black text-white hover:border-sky-600 hover:border-b-4 hover:border-x-2'>
               <div className="bg-slate-400 rounded-full w-10 h-10 flex items-center justify-center m-5">
                 <item.icon className="text-[35px] text-black" />
               </div>
@@ -51,7 +51,7 @@ export default function About() {
         </div>
       </div>
       {/* Sample image with some paragrapgh */}
-      <div className="flex flex-col sm:flex-row gap-4  justify-between bg-slate-300 mt-10 rounded-xl p-4">
+      <div className="flex flex-col sm:flex-row gap-4  justify-between dark:bg-white bg-black dark:text-black text-white mt-10 rounded-xl p-4">
         <div className='flex-1 flex justify-start '>
           <Image src={'/assets/images/img_rectangle_11_390x728.png'} alt='' width={500} height={500} />
         </div>
@@ -67,7 +67,8 @@ export default function About() {
         <p>Where Experience Meets Compassions</p>
         <div className='grid grid-cols-2 gap-5  mt-10'>
           {experience.map((item, index) => (
-            <div key={item.id} className='w-full flex items-center rounded-2xl shadow-2xl bg-slate-50  p-3'>
+            <div key={item.id} 
+            className='w-full flex items-center rounded-2xl shadow-2xl dark:bg-white bg-black dark:text-black text-white  p-3'>
               <div className='border-slate-950 border-2 p-3 rounded-md'>
                 <h2 className='text-justify w-[350px] text-2xl font-extrabold capitalize'>{item.title}</h2>
                 <p className='text-justify w-[350px]  font-extralight'>{item.description}</p>
@@ -85,7 +86,7 @@ export default function About() {
         <div className='w-full h-full bg-black/80 absolute  flex items-center flex-col gap-3 justify-center'>
           <h1 className='text-white text-2xl font-extrabold'>Testimonial</h1>
           <h2 className='text-4xl text-white'>Feedback from Honest Optionaa</h2>
-          <div className='bg-white p-8 rounded-e-xl rounded-ss-xl flex  gap-3'>
+          <div className='md:w-auto w-[80%] mx-auto dark:bg-white bg-black p-8 dark:text-black text-white rounded-e-xl rounded-ss-xl flex  gap-3'>
             <p className='border-r-4 border-r-blue-800 p-2 text-blue-600'><AutoAwesomeIcon/></p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas corporis tempore nostrum sapiente perferendis inventore libero dolorum obcaecati laboriosam blanditiis.</p>
           </div>

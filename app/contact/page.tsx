@@ -72,7 +72,7 @@ export default function Contact() {
 
                       <div className=' md:w-[30rem] mx-auto'>
                         <p className='flex'><input type='checkbox' className='text-sky-400 rounded-full m-2'/>I here by agree to our <strong className='text-amber-600'>Privacy policy</strong> terms</p>
-                        <button className={`rounded-full bg-sky-500 text-white px-4 py-2 mt-4`}>Submit Form</button>
+                        <button className={`rounded-full cursor-pointer bg-sky-500 text-white px-4 py-2 mt-4`}>Submit Form</button>
                       </div>
                   </Form>
                </div>
