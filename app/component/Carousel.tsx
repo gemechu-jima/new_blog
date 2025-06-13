@@ -30,7 +30,7 @@ export default function Carousel() {
             key={item.id}
             src={item.image}
             alt={item.introduction}
-            layout='fill'
+            fill
             className=" object-fill"
           />
         ) : null

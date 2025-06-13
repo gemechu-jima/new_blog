@@ -12,27 +12,55 @@ export const titles=[
 
     },
     {
-        id:2,
+        id:3,
         title:"Sports"
     },
      {
-        id:2,
+        id:4,
         title:"Business"
     }, {
-        id:2,
+        id:5,
         title:"AI"
     }, {
-        id:2,
+        id:6,
         title:"Movies"
     }, {
-        id:2,
+        id:7,
         title:"Shop"
     }, {
-        id:2,
+        id:8,
         title:"Wedding"
     }, {
-        id:2,
+        id:9,
         title:"Art"
+    },
+    {
+        id:10,
+        title:"Fashion"
+    },
+    {
+        id:11,
+        title:"Health"
+    },
+    {
+        id:12,
+        title:"Travel"
+    },
+    {
+        id:13,
+        title:"Religion"
+    },
+    {
+        id:14,
+        title:"Food"
+    },
+    {
+        id:15,
+        title:"Lifestyle"
+    },
+    {
+        id:16,
+        title:"Music"
     },
 
 ]

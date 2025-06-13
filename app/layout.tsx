@@ -1,7 +1,7 @@
 
 
 import type { Metadata } from "next";
-import { Providers } from "./useContext/useTheme";
+// import { Providers } from "./useContext/useTheme";
 import "./globals.css";
 import Header from "@/app/header/page"
 import Footer from "@/app/footer/page"
@@ -17,18 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" >
-      <body
-      >
-        <Providers >
+    <html lang="en"  suppressHydrationWarning>
+  <body>
       <Header />
-          <div className="mt-[5rem]">
-            {children}
-          </div>
-          <Footer />
-        </Providers>
-
-      </body>
-    </html>
+      <div className="mt-[5rem] dark:bg-black bg-white text-black dark:text-white ">{children}</div>
+      <Footer />
+  </body>
+</html>
   );
 }

@@ -3,9 +3,10 @@ import Image from 'next/image'
 import { Services, experience } from '../utils/db';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+
 export default function About() {
   return (
-    <div className='w-[90%] mx-auto  mt-30 pb-10'>
+    <div className='w-[90%] mx-auto  mt-30 pb-10  '>
       <div className='relative   w-full h-[300px]'>
         <Image src={'/assets/images/team-1.jpg'} alt="" fill className="object-cover" />
         <div className='w-full h-full bg-black/70 absolute  flex items-center justify-center'>
@@ -19,6 +20,7 @@ export default function About() {
           </p>
         </div>
       </div>
+  
       {/* Sample image with some paragrapgh */}
       <div className="flex flex-col-reverse sm:flex-row gap-4  justify-between bg-slate-300 mt-10 rounded-xl p-4">
         <div className='flex-1 '>
