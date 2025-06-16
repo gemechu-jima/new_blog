@@ -13,7 +13,7 @@ export default function Contact() {
   return (
     <div className='w-[90%] mx-auto dark:bg-gray-800 bg-gray-200'>
       <div className='relative   w-full h-[300px]'>
-              <Image src={'/assets/images/img_rectangle_14.png'} alt="" fill className="object-cover " />
+              <Image src={'/assets/images/img_rectangle_14.png'} alt="phone in hand" fill className="object-cover " />
               <div className='w-full h-full bg-black/70 absolute  flex items-center justify-center'>
                 <h1 className='text-white text-4xl font-extrabold'>Contact Us</h1>
               </div>
@@ -22,7 +22,7 @@ export default function Contact() {
             <div className='w-full xl:w-[90%]  mx-auto flex sm:flex-row flex-col justify-between mt-10 '>
                <div className='flex-1'>
                 <div className='h-[400px] w-[70%] relative'>
-                <Image src={'/assets/bg-rm.png'} alt="" fill  className=" object-cover w-96 h-96 rounded-2xl mix-blend-normal" />
+                <Image src={'/assets/bg-rm.png'} alt="" width={500} height={500}  className=" object-cover z-20 w-96 h-96 rounded-2xl mix-blend-normal" />
                 </div>
                 <div className='flex items-center gap-3  my-4'>
                   <EmailIcon className='text-sky-500'/>
@@ -47,7 +47,7 @@ export default function Contact() {
                   </div>
                 </div>
                </div>
-               <div className='flex-1  bg-white shadow-2xs rounded-2xl p-4 '>
+               <div className='flex-1  bg-white dark:bg-gray-950 shadow-2xs rounded-2xl p-4 '>
                   <Form action={'/'}>
                       <div className='flex pt-4 my-3 border-b-[1px]  border-slate-400 md:w-[30rem] mx-auto'>
                          <label><PersonIcon className='text-slate-400'/></label>

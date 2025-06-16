@@ -1,12 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
-import { Services, experience } from '../utils/db';
+import { Services, experience } from '../../utils/db';
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 export default function About() {
   return (
-    <div className='w-[90%] mx-auto  mt-30 pb-10  '>
+    <div className='w-[90%] mx-auto   pb-10  '>
       <div className='relative   w-full h-[300px]'>
         <Image src={'/assets/images/team-1.jpg'} alt="" fill className="object-cover" />
         <div className='w-full h-full bg-black/70 absolute  flex items-center justify-center'>
@@ -22,7 +22,7 @@ export default function About() {
       </div>
   
       {/* Sample image with some paragrapgh */}
-      <div className="flex flex-col-reverse sm:flex-row gap-4  justify-between bg-slate-300 mt-10 rounded-xl p-4">
+      <div className="flex flex-col-reverse sm:flex-row gap-4  justify-between  mt-10 rounded-xl p-4">
         <div className='flex-1 '>
           <h1 className='text-justify text-4xl'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor, maxime.</h1>
           <h2 className='text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque amet qui, necessitatibus, magnam odit accusantium natus enim cupiditate omnis a veniam id modi! Enim sequi officia quas ducimus explicabo sunt. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam pariatur rerum sed sit fugiat minus molestiae accusantium laudantium doloribus explicabo, odit aperiam doloremque non quod sequi, aliquid dolor fuga id! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit ex tempora rem, enim fugiat dolore incidunt repellendus odio labore architecto dolorum nam repellat amet quaerat quidem atque, laboriosam debitis aliquam.</h2>

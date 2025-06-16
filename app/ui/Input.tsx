@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { PropsInput } from '../utils/interface'
+import { PropsInput } from '../../utils/interface'
 export default function Input({type, value, onChange, placeholder, name}:PropsInput) {
   return (
     <div className='w-full'>

@@ -5,18 +5,6 @@ import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
 import KeyIcon from '@mui/icons-material/Key';
 import Groups2Icon from '@mui/icons-material/Groups2';
 import HttpsIcon from '@mui/icons-material/Https';
-const data=[
-    {
-        id:1,
-        name:"",
-        title:"",
-        content:"",
-        introduction:"",
-        image:"",
-        link:"",
-        author:""
-    }
-]
 
 export const sampleData=[
     {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { sampleData } from '../utils/db'
+import { sampleData } from '../../utils/db'
 export default function Blog() {
   const filterBySports=sampleData.filter((item, i)=>item.title.toLowerCase()==='sports'.toLowerCase())
   const filterByTechnology=sampleData.filter((item, i)=>item.title.toLowerCase()==='technology'.toLowerCase())

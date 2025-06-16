@@ -1,5 +1,5 @@
 import React from 'react'
-import { PropsTetxarea } from '../utils/interface'
+import { PropsTetxarea } from '../../utils/interface'
 export default function textArea({name, placeholder }:PropsTetxarea) {
   return (
     <div>

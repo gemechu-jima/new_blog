@@ -2,7 +2,7 @@
 
 import type { Metadata } from "next";
 // import { Providers } from "./useContext/useTheme";
-import "./globals.css";
+import "../styles/globals.css";
 import Header from "@/app/header/page"
 import Footer from "@/app/footer/page"
 

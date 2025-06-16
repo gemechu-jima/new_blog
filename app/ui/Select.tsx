@@ -1,6 +1,6 @@
 import React from 'react'
-import { titles } from '../utils/title'
-import { PropsSelect } from '../utils/interface'
+import { titles } from '../../utils/title'
+import { PropsSelect } from '../../utils/interface'
 export default function Select({ name }: PropsSelect) {
     return (
         <div className='w-full'>

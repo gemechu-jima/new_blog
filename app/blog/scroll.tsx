@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import Links from './Links'
-import { titles } from '../utils/title'
+import { titles } from '../../utils/title'
 export default function Scroll() {
 
     const [index, setIndex] = useState(0);

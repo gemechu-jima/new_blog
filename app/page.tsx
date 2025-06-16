@@ -1,10 +1,10 @@
 'use client'
 
-import Carousel from "./component/Carousel";
-import Postblog from "./component/PostBlog";
+import Carousel from "../components/Carousel";
+import Postblog from "../components/PostBlog";
 import { useState } from "react";
-import Latest from "./component/Latest";
-import Popular from "./component/Popular";
+import Latest from "../components/Latest";
+import Popular from "../components/Popular";
 export default function Home() {
    const [color, setColor]=useState(false)
   return (

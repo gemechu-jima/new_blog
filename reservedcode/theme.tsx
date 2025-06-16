@@ -28,6 +28,15 @@ export  function ThemeToggle() {
       document.documentElement.classList.remove(theme === 'light' ? 'dark' : 'light');
     };
   }, [theme]);
+  useEffect(()=>{
+    const savedTheme=localStorage.getItem('theme')
+    const prefersDark=window.matchMedia('(prefers-color-scheme:dark)').matches;
+    if(savedTheme){
+      setTheme(savedTheme)
+    }else if (prefersDark){
+      setTheme(prefersDark ? 'dark' : 'light');
+    }
+  },[])
 
   return (
     <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
