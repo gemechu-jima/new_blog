@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <div className='fixed z-100 bg-linear-to-b dark:bg-black bg-white text-black dark:text-white  w-screen h-[5rem] flex text-center inset-x-0 top-0'>
         <div className='w-[88%] mx-auto flex justify-between items-center '>
-         { openLink && <EveryLink/>}
+         { openLink && <EveryLink setOpenLink={setOpenLink} />}
          <Logo/>
          <Nav setOpenLink={setOpenLink}/>
          <Search/>

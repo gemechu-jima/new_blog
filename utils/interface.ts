@@ -1,10 +1,10 @@
 export interface PropsInput{
     type:"text" | 'number' |'textarea' |"password" |'file'
     placeholder:string
-    value:string  | number
+    value?:string  | number
     title?:string
     name:string
-    onChange:(event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?:(event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface PropsSelect {
