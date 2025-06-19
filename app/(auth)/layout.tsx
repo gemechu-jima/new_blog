@@ -31,7 +31,7 @@ export default async function Layout({
       <ul className="flex flex-col">
         {
           users.map((item, i) => (
-            <li>{item.email}</li>
+            <li className="">{item.email}</li>
           ))
         }
       </ul>
