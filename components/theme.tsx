@@ -16,7 +16,7 @@ export default function ThemeToggle() {
 const toggleTheme=()=>{
   setTheme(theme==='light' ? "dark" :"light")
 }
-console.log('theme', theme)
+
   return (
     <button onClick={toggleTheme}>
        {theme==='dark' ? <BedtimeIcon/> :<SunnyIcon />}

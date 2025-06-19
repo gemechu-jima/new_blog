@@ -3,6 +3,7 @@ import React from 'react'
 import { toast } from 'react-toastify';
 import { createUser } from '@/actions/actions'
 export default function Register() {
+  
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -16,6 +17,8 @@ export default function Register() {
 
 
   return (
+    <>
+   
     <form onSubmit={handleSubmit} className="w-full">
       <div className="flex flex-col space-y-4">
         {0 > 1 && <fieldset className="fieldset">
@@ -121,5 +124,6 @@ export default function Register() {
       
     </form>
 
+ </>
   )
 }

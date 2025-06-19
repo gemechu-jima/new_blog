@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { getUsers } from "@/actions/actions";
+import { getUsers} from "@/actions/actions";
+import ListUser from "./register/ListUser";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,13 +32,10 @@ export default async function Layout({
       <ul className="flex flex-col">
         {
           users.map((item, i) => (
-            <li className="">{item.email}</li>
+            <ListUser Item={item} key={item.id} />
           ))
         }
       </ul>
-
-
     </div>
-
   );
 }

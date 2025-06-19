@@ -1,6 +1,9 @@
 export interface UserProps{
-    usename?:string
-    email:string
-    password:string
-    confirmPassword:string
+   id: string;
+    email: string;
+    username?: string | null;
+    password: string;
+    confirmPassword?:string
+    createdAt: Date;
+    updatedAt: Date;
 }
