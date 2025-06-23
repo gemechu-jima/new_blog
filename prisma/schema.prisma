@@ -26,14 +26,15 @@ model User {
 
 model Blog {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  name         String
+  name         String?
   title        String
   content      String
-  introduction String
+  introduction String?
   image        String
   link         String
-  author       String
+  author       String?
   User         User?    @relation(fields: [userId], references: [id])
+  published    Boolean? @default(false)
   userId       String?  @db.ObjectId
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt

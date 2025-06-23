@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { toast } from 'react-toastify';
+import Link from 'next/link';
 import { createUser } from '@/actions/actions'
 export default function Register() {
   
@@ -20,6 +21,7 @@ export default function Register() {
     <>
    
     <form onSubmit={handleSubmit} className="w-full">
+      <h1 className='text-center pb-5 text-4xl text-accent text-shadow-accent-content font-'> Register Page</h1>
       <div className="flex flex-col space-y-4">
         {0 > 1 && <fieldset className="fieldset">
           <legend className="fieldset-legend">Pick a file</legend>
@@ -117,10 +119,11 @@ export default function Register() {
           <br />At least one number <br />At least one lowercase letter <br />At least one uppercase letter
         </p>
       </div>
-      <div className='flex items-center justify-between w-[80%] mx-auto mt-10'>
-       <button type='submit' className="btn  btn-primary">Register</button>
-     <button type='reset' className="btn btn-warning">clear</button>
-      </div>
+       <button type="submit" className="btn btn-accent w-full">sign Up</button>
+          <div className='text-center h-4'>
+          
+          </div>
+          <p className='text-center'>Already have account ? <Link href={'/login'}>sign in</Link></p>
       
     </form>
 

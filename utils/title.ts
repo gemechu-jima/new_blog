@@ -64,3 +64,18 @@ export const titles=[
     },
 
 ]
+export const orderedTitles = [
+  'sports',
+  'technology',
+  'science',
+  'lifestyle',
+  'environment',
+  'health',
+  'gaming',
+  'business',
+  'economy',
+  "Music",
+  "Food",
+  "Religion",
+  "Travel",
+]

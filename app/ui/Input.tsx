@@ -1,16 +1,18 @@
 "use client"
 import React from 'react'
-import { PropsInput } from '../../utils/interface'
-export default function Input({type, value, onChange, placeholder, name}:PropsInput) {
+import { PropsInput } from '../../types/inputType'
+export default function Input({ type, value, onChange, placeholder, name }: PropsInput) {
   return (
-    <div className='w-full'>
-              <label className='w-full rounded-md text-white text-2xl mb-2 capitalize '>{name}</label>
-              <input 
-              type={type}
-              value={value}
-              onChange={onChange}
-              placeholder={placeholder}
-              className='w-full wrap-anywhere rounded-md bg-slate-800 placeholder:text-gray-400 focus:outline-2 outline-sky-400 p-2 text-slate-200 '/>
-  </div>
-  )
-}
+<div className="w-full max-w-3xl mx-auto my-4 px-4">
+  <label className="block text-xl sm:text-lg font-medium text-gray-700 mb-2 capitalize">
+    {name}
+     </label>
+    <input
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      className="mt-2 w-full input input-accent rounded-md p-3 text-base sm:text-sm md:text-base lg:text-lg"
+    />
+ 
+</div>
+  )}

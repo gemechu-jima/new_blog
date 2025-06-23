@@ -1,11 +1,18 @@
 import React from 'react'
-import { PropsTetxarea } from '../../utils/interface'
-export default function textArea({name, placeholder }:PropsTetxarea) {
+import { PropsTetxarea } from '../../types/inputType'
+export default function TextArea({ name, placeholder, resize }: PropsTetxarea) {
   return (
-    <div>
-         <label className='w-full rounded-md text-white text-2xl mb-2 '>{name}</label>
-        <textarea   placeholder={placeholder}
-        className='w-full peer col-end-12 rounded-md bg-slate-800 placeholder:text-gray-400 focus:outline-2 outline-sky-400 p-2 text-slate-200' rows={6}></textarea>
-        </div>
+    <div className="w-full max-w-3xl mx-auto px-4">
+       <label className="block text-xl sm:text-lg font-medium text-gray-700 mb-2 capitalize">
+    {name}
+    </label>
+      <textarea
+        placeholder={placeholder}
+        name={name}
+        className={`${resize? "resize":" resize-none"} w-full textarea textarea-accent  rounded-md p-3 text-base sm:text-sm md:text-base lg:text-lg`}
+        rows={6}
+      
+      />
+    </div>
   )
 }

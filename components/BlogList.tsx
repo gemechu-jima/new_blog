@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import { sampleData } from '../utils/db'
-export default function PostBlog() {
+export default function BlogList() {
     return (
         <div className='grid grid-cols-3 gap-4 mt-4 w-[90%] mx-auto p-4'>
 

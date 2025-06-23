@@ -1,6 +1,9 @@
 'use server'
 import prisma from "@/lib/prisma";
+import { cookies } from "next/headers";
+import jwt from "jsonwebtoken"
 import { revalidatePath } from "next/cache";
+const JWT_SECRET = process.env.JWT_SECRET || '123westwds55434n:kygc?'
 export async function createUser(formData: FormData) {
     const username = formData.get("username") as string;
     const email = formData.get("email") as string;
@@ -104,4 +107,33 @@ export async function updateUser(id:string ,formData:FormData) {
         console.error("Error Update user:", error);
         throw new Error("Failed to update user");
     }
+}
+
+export async function SignIn(formData:FormData) {
+    try {
+    const email = formData.get('email')?.toString();
+    const password = formData.get('password')?.toString();
+
+
+    if (!email || !password) {
+      return { success: false, message: "Email and password are required." };
+    }
+     if (email !== 'admin@example.com' || password !== 'admin123') {
+      return { success: false, message: 'Invalid credentials' }
+    }
+    const token = jwt.sign({ email }, JWT_SECRET, {
+      expiresIn: '1h'
+    })
+     ;(await cookies()).set('token', token, {
+      httpOnly: true,
+      secure: true,
+      path: '/',
+      maxAge: 60 * 60 // 1 hour
+    })
+        return {success:true, message:"login successfull"}
+    } catch (error) {
+        console.error("Error login user:", error);
+        throw new Error("Failed to login user");
+    }
+    
 }

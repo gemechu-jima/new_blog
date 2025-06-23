@@ -1,7 +1,7 @@
 'use client'
 
 import Carousel from "../components/Carousel";
-import Postblog from "../components/PostBlog";
+import BlogList from "@/components/BlogList";
 import { useState } from "react";
 import Latest from "../components/Latest";
 import Popular from "../components/Popular";
@@ -22,7 +22,7 @@ export default function Home() {
        {color ? <Latest /> : <Popular/>}
         </div>
       </main>
-      <Postblog/>
+      <BlogList/>
     </div>
   );
   

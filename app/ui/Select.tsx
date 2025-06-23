@@ -1,16 +1,23 @@
 import React from 'react'
-import { titles } from '../../utils/title'
-import { PropsSelect } from '../../utils/interface'
-export default function Select({ name }: PropsSelect) {
+import { orderedTitles } from '../../utils/title'
+import { PropsSelect } from '../../types/inputType'
+export default function Select({ name, title}: PropsSelect) {
     return (
-        <div className='w-full'>
-            <label className='w-full rounded-md text-white text-2xl mb-2 '>{name}</label>
-            <select name={name} className='w-full wrap-anywhere rounded-md bg-slate-800 placeholder:text-gray-400 focus:outline-2 outline-sky-400 p-2 text-slate-200'>
-                {titles.map((title, index) => (
-                    <option key={title.id + index} value={title.title}>{title.title}</option>
+        <div className="w-full max-w-3xl mx-auto my-4 px-4">
+            <label htmlFor={name} className="block text-xl sm:text-lg font-medium text-gray-700 mb-2 capitalize">
+               {title}
+            </label>
+            <select
+                id={name}
+                name={name}
+                className="w-full select select-accent rounded-md  text-base sm:text-sm md:text-base lg:text-lg"
+            >
+                {orderedTitles.map((title, i) => (
+                    <option key={i} value={title} className="capitalize">
+                        {title}
+                    </option>
                 ))}
             </select>
-
         </div>
     )
 }

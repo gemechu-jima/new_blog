@@ -15,7 +15,8 @@ export const sampleData=[
         introduction:"Why Cristiano Ronaldo's Portugal won't be allowed to take UEFA Nations League trophy home",
         image:"/assets/news/ronaldo.png",
         link:"https://www.msn.com/en-xl/africa/kenya/why-cristiano-ronaldo-s-portugal-won-t-be-allowed-to-take-uefa-nations-league-trophy-home/ar-AA1Gl0ea?ocid=msedgntp&pc=U531&cvid=814aced00a174a3ca4b9d9cd0e0349a3&ei=13",
-        author:"Tuko"
+        author:"Tuko",
+        published:true
     },
     {
     id: 939,

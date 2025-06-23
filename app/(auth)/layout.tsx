@@ -1,8 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { getUsers} from "@/actions/actions";
-import ListUser from "./register/ListUser";
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,19 +20,12 @@ export default async function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const users = await getUsers()
+  
   return (
-    <div className="h-screen flex items-center justify-center flex-col gap-5 ">
+    <div className="h-screen flex items-center justify-center flex-col gap-5 opacity-80 ">
       <div className="p-4 sm:w-1/3 xl:w-1/4  mx-5 sm:mx-auto h-auto -mt-20  dark:bg-gray-800 bg-gray-200 rounded-xl ">
         {children}
       </div>
-      <ul className="flex flex-col">
-        {
-          users.map((item, i) => (
-            <ListUser Item={item} key={item.id} />
-          ))
-        }
-      </ul>
     </div>
   );
 }
