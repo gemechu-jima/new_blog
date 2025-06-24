@@ -15,7 +15,7 @@ export default function Register() {
       toast.error(result?.message);
     }
   };
-
+let p='(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
 
   return (
     <>
@@ -80,8 +80,8 @@ export default function Register() {
             required
             name='password'
             placeholder="Password"
-            minLength={8}
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            minLength={6}
+            // pattern=""
             title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
           />
         </label>
@@ -109,8 +109,7 @@ export default function Register() {
             required
             name='confirmPassword'
             placeholder="ConfirmPassword"
-            minLength={8}
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            minLength={6}
             title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
           />
         </label>

@@ -9,28 +9,16 @@ import ImageUpload from '../ui/ImageUpload'
 import { createBlog } from '@/actions/blogsAction'
 import { toast } from 'react-toastify'
 export default function PostBlogForm() {
-  const [images, setImages] = useState<{ file: File; url: string }[]>([])
+  const [images, setImages] = useState<string[]>([])
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const files = e.target.files;
-  if (!files) return toast.error("please upload image");
-
-  const filePreviews = Array.from(files).map(file => {
-    const typedFile = file as File;
-    return {
-      file: typedFile,
-      url: URL.createObjectURL(typedFile),
-    };
-  });
-
-  setImages(prev => [...prev, ...filePreviews]); 
-};
+  console.log('images =', images)
   const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault()
     const formData = new FormData(ev.currentTarget)
-     images.forEach((imgObj, index) => {
-    formData.append(`images`, imgObj.file); 
-  });
+     const cloudImageUrls = images.filter((img): img is string => typeof img === "string");
+    cloudImageUrls.forEach((url) => {
+      formData.append('images', url);
+    })
 
     const result = await createBlog(formData);
     if (result.success) {
@@ -50,42 +38,38 @@ export default function PostBlogForm() {
             type='text'
             value=''
             placeholder="Enter Name"
-            name='Name'
+            name='name'
           />
-          <Select title='title' name='Title' />
+          <Select title='title' name='title' />
           <TextArea
-            onChange={handleOnChange}
             placeholder="Enter Introduction"
-            name='Introduction'
+            name='introduction'
             resize={false}
           />
           <TextArea
-            onChange={handleOnChange}
             placeholder="Enter Content"
             name='content'
             resize={true}
           />
           <Input
             type='text'
-            value=''
-            onChange={handleOnChange}
             placeholder="Link of reference"
-            name='Link' />
-          <ImageUpload  onChange={handleOnChange}/>
+            name='link' />
+          <ImageUpload setImages={setImages} />
           {images.length > 0 ? (
             <div className='grid md:grid-cols-3'>
               {images.map((imgObj, index) => (
-              <Image
-                key={index}
-                src={imgObj.url}
-                alt={`Uploaded ${index + 1}`}
-                width={100}
-                height={100}
-              />
-            ))}
-            </div> 
+                <Image
+                  key={index}
+                  src={imgObj}
+                  alt={`Uploaded ${index + 1}`}
+                  width={100}
+                  height={100}
+                />
+              ))}
+            </div>
           ) : (
-            <p>Please Upload Image</p>
+            <p className='text-center'>Not Image found</p>
           )}
 
           <div className='flex justify-between'>

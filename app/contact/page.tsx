@@ -6,9 +6,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PersonIcon from '@mui/icons-material/Person';
 import SubjectIcon from '@mui/icons-material/Subject';
-import EditDocumentIcon from '@mui/icons-material/EditDocument';
-import { Check } from '@mui/icons-material';
-import Input from '../ui/Input';
+
 export default function Contact() {
   return (
     <div className='w-[90%] mx-auto dark:bg-gray-800 bg-gray-200'>

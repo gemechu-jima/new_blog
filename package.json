@@ -6,13 +6,17 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:seed": "tsc -p tsconfig.seed.json",
+    "seed": "npm run build:seed && node dist/seed.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.1.1",
     "@prisma/client": "^6.10.0",
+    "bcrypt": "^6.0.0",
+    "dotenv": "^16.5.0",
     "jsonwebtoken": "^9.0.2",
     "next": "15.3.3",
     "next-themes": "^0.4.6",
@@ -22,13 +26,18 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bcrypt": "^5.0.2",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/node": "^20",
+    "@types/node": "^20.19.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "daisyui": "^5.0.43",
     "prisma": "^6.9.0",
     "tailwindcss": "^4.1.10",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "prisma": {
+    "seed": "node lib/seed.mjs"
   }
 }

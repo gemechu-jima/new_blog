@@ -29,8 +29,8 @@ model Blog {
   name         String?
   title        String
   content      String
-  introduction String?
-  image        String
+  introduction String
+  images       String[]
   link         String
   author       String?
   User         User?    @relation(fields: [userId], references: [id])

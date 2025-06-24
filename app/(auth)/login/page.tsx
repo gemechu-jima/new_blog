@@ -2,16 +2,18 @@
 'use client'
 import React from 'react'
 import { SignIn } from '@/actions/actions'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
 export default function Login() {
- 
+ const router=useRouter()
   const handleLogin=async(formData: FormData)=>{
    const result=await SignIn(formData)
-   if(result.success){
-    toast.success(result.success)
+   if(result?.success){
+    toast.success(result.message)
+    router.push('/blog')
    }else{
-    toast.error(result.message)
+    toast.error(result?.message)
    }
   }
   return (
@@ -34,9 +36,8 @@ export default function Login() {
             type="password"
             name="password"
             required
-          
             placeholder="Password"
-            minLength={8}
+            minLength={6}
             title="Must include number, lowercase and uppercase letter"
            
           />
