@@ -5,12 +5,15 @@ import { SignIn } from '@/actions/actions'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
+import { UseContextProvider } from '@/app/useContext/UseContext'
 export default function Login() {
+  const {setUser}=UseContextProvider()
  const router=useRouter()
   const handleLogin=async(formData: FormData)=>{
    const result=await SignIn(formData)
    if(result?.success){
     toast.success(result.message)
+    setUser(result.data || null)
     router.push('/blog')
    }else{
     toast.error(result?.message)

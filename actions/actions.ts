@@ -2,6 +2,7 @@
 import prisma from "@/lib/prisma";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken"
+import { generateToken } from "@/utils/validatorToken";
 import bcrypt from "bcrypt"
 import { revalidatePath } from "next/cache";
 const JWT_SECRET = process.env.JWT_SECRET as string
@@ -130,20 +131,10 @@ export async function SignIn(formData: FormData) {
         if (!isPasswordCorrect) {
             return { success: false, message: "Invalid credentials." }
         }
-
-        const token = jwt.sign(
-            { email: existUser.email, id: existUser.id , image:existUser.image},
-            JWT_SECRET,
-            { expiresIn: '1h' }
-        )
-        const cookieStore=await cookies()
-        cookieStore.set('token', token, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            path: '/',
-            maxAge: 60 * 60 
-        })
-        return { success: true, message: "Login successful"}
+          revalidatePath('/')
+          await generateToken({email:existUser.email, id:existUser.id, image:existUser.image || ''})
+       
+        return { success: true, message: "Login successful", data:{email:existUser.email, id:existUser.id, image:existUser.image || ''}}
 
     } catch (error) {
         console.error("Error logging in user:", error)

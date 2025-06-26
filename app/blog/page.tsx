@@ -1,12 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { sampleData } from '../../utils/db'
+import { validatorToken } from '@/utils/validatorToken'
 import { orderedTitles } from '@/utils/title'
 import { getBlogs, update } from '@/actions/blogsAction'
 import PostBlogForm from '../model/postBlogForm'
 
 export default async function Blog() {
+  await validatorToken()
   const data =await getBlogs()
   // const u=await update()
  

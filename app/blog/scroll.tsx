@@ -60,7 +60,7 @@ export default function Scroll() {
             {scroll > 0 && (
                 <div
                     className=" left-0 z-40 flex  w-16 cursor-pointer 
-                 items-center justify-center bg-gradient-to-l  from-transparent to-black text-gray-900"
+                 items-center justify-center bg-linear-to-l  from-transparent to-black text-gray-900"
                     onClick={prev}
                 >
                     <ArrowLeftIcon
@@ -81,7 +81,7 @@ export default function Scroll() {
             {scroll < maxScroll && (
                 <div
                     className=" hover:grad absolute right-0 z-30 flex  w-16
-                   cursor-pointer items-center  justify-center bg-gradient-to-l  from-black to-transparent text-gray-900"
+                   cursor-pointer items-center  justify-center bg-linear-to-l  from-black to-transparent text-gray-900"
                     onClick={next}
                 >
                     <ArrowRightIcon
