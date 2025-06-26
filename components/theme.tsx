@@ -18,7 +18,7 @@ const toggleTheme=()=>{
 }
 
   return (
-    <button onClick={toggleTheme}>
+    <button onClick={toggleTheme} className='ml-6'>
        {theme==='dark' ? <BedtimeIcon/> :<SunnyIcon />}
     </button>
   );

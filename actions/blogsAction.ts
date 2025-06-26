@@ -43,11 +43,14 @@ export async function createBlog(formData: FormData) {
     const name = formData.get("name")?.toString()
     const introduction = formData.get("introduction")?.toString()
     const content = formData.get("content")?.toString()
-     const imageFiles = formData.getAll("images").map(val => val.toString());
+     const imageFiles = formData.getAll("images").filter((val): val is string =>
+    typeof val === "string" &&
+    val.startsWith("https://res.cloudinary.com/")
+  );
     const link = formData.get("link")?.toString() ?? ''
     const published = formData.get("published") !== null;
   
-    console.log(formData)
+    console.log("image come", imageFiles)
     if (!title || !content || !introduction || !name) {
         return { success: false, message: "Title is required or content" }
     }
@@ -73,7 +76,7 @@ export async function createBlog(formData: FormData) {
                 introduction,
                 link,
                 author: ExistUser.username,
-                published,
+                published:published ?? true,
                 userId: ExistUser.id,
             }
         })

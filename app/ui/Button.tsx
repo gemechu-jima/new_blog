@@ -24,6 +24,6 @@ const getColor = () => {
 };
 
   return (
-    <button onClick={click} className={`${getColor()} px-5 rounded-xl py-3 `}>{name}</button>
+    <button onClick={click} className={`${getColor()} px-5 rounded-xl py-3 w-full `}>{name}</button>
   )
 }

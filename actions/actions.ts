@@ -10,8 +10,9 @@ export async function createUser(formData: FormData) {
     const username = formData.get("username")?.toString();
     const email = formData.get("email")?.toString();
     const password = formData.get("password")?.toString();
+    const image=formData.get('image')?.toString()
     const confirmPassword = formData.get('confirmPassword')?.toString()
-
+    console.log(image)
     if (!email || !password || !confirmPassword) {
         return { success: false, message: "All fields are required." }
     }
@@ -27,7 +28,7 @@ export async function createUser(formData: FormData) {
 
         const hashedPasssword = await bcrypt.hash(password, 10)
         await prisma.user.create({
-            data: { email, username, password: hashedPasssword }
+            data: { email, username, image, password: hashedPasssword }
         })
         revalidatePath("/")
         return { success: true, message: "Registration successful" }
@@ -131,7 +132,7 @@ export async function SignIn(formData: FormData) {
         }
 
         const token = jwt.sign(
-            { email: existUser.email, id: existUser.id },
+            { email: existUser.email, id: existUser.id , image:existUser.image},
             JWT_SECRET,
             { expiresIn: '1h' }
         )
@@ -140,9 +141,9 @@ export async function SignIn(formData: FormData) {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             path: '/',
-            maxAge: 60 * 60 // 1 hour
+            maxAge: 60 * 60 
         })
-        return { success: true, message: "Login successful" }
+        return { success: true, message: "Login successful"}
 
     } catch (error) {
         console.error("Error logging in user:", error)

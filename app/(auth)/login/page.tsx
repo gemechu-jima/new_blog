@@ -2,7 +2,7 @@
 'use client'
 import React from 'react'
 import { SignIn } from '@/actions/actions'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
 export default function Login() {

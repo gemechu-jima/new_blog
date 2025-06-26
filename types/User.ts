@@ -3,6 +3,7 @@ export interface UserProps{
     email: string;
     username?: string | null;
     password: string;
+    image?:string | null
     confirmPassword?:string
     createdAt: Date;
     updatedAt: Date;

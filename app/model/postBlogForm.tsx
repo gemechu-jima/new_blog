@@ -1,31 +1,33 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import Input from '../ui/Input'
 import Select from '../ui/Select'
-import Button from '../ui/Button'
 import TextArea from "../ui/TextArea"
 import ImageUpload from '../ui/ImageUpload'
 import { createBlog } from '@/actions/blogsAction'
 import { toast } from 'react-toastify'
 export default function PostBlogForm() {
   const [images, setImages] = useState<string[]>([])
-
+  const inputRef = useRef<HTMLInputElement>(null)
   console.log('images =', images)
   const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault()
     const formData = new FormData(ev.currentTarget)
-     const cloudImageUrls = images.filter((img): img is string => typeof img === "string");
+    const cloudImageUrls = images.filter((img): img is string => typeof img === "string");
     cloudImageUrls.forEach((url) => {
       formData.append('images', url);
     })
-
+    console.log("cloudImage", cloudImageUrls)
     const result = await createBlog(formData);
     if (result.success) {
       toast.success(result.message)
     } else {
       toast.error(result.message)
     }
+  }
+  const triggerUpload = () => {
+    inputRef.current?.click()
   }
   return (
     <dialog id="my_modal_3" className="modal w-full mt-5">
@@ -55,9 +57,14 @@ export default function PostBlogForm() {
             type='text'
             placeholder="Link of reference"
             name='link' />
-          <ImageUpload setImages={setImages} />
+          <fieldset className="fieldset flex flex-col items-center gap-3 -mt-8">
+            <ImageUpload setImages={setImages} inputRef={inputRef} />
+            <Image src="/assets/uploadIcon.png" alt={"icon"} width={140} height={100}
+              className='flex center rounded-full cursor-pointer' onClick={triggerUpload} />
+          </fieldset>
+
           {images.length > 0 ? (
-            <div className='grid md:grid-cols-3'>
+            <div className='grid md:grid-cols-3 gap-4'>
               {images.map((imgObj, index) => (
                 <Image
                   key={index}
@@ -69,12 +76,11 @@ export default function PostBlogForm() {
               ))}
             </div>
           ) : (
-            <p className='text-center'>Not Image found</p>
+            <p className='text-center'>Please Upload image of this Infromation</p>
           )}
 
-          <div className='flex justify-between'>
-            <Button name='Submit' />
-            <Button name='Cancel' />
+          <div className='w-[90%] mx-auto flex justify-between mt-6'>
+            <button name='Submit' className='w-full py-2 rounded-md px-3 bg-accent text-xl' >Post new blog</button>
           </div>
         </form>
       </div>
