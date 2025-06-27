@@ -4,6 +4,7 @@ export interface UserProps{
     username?: string | null;
     password: string;
     image?:string | null
+    permission:boolean
     confirmPassword?:string
     createdAt: Date;
     updatedAt: Date;

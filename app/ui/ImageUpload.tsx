@@ -15,6 +15,7 @@ export default function ImageUpload({ setImages, inputRef }:
 
     const uploadedImages: string[] = []
     for (const file of Array.from(files)) {
+      
       const formData = new FormData();
       formData.append('file', file);
       formData.append('upload_preset', uploadPreset);
@@ -57,4 +58,12 @@ export default function ImageUpload({ setImages, inputRef }:
       />
     </div>
   )
+}
+
+async function getFileHash(file: File): Promise<string> {
+  const arrayBuffer = await file.arrayBuffer();
+  const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer);
+  return Array.from(new Uint8Array(hashBuffer))
+    .map(b => b.toString(16).padStart(2, '0'))
+    .join('');
 }

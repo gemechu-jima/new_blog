@@ -4,22 +4,24 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { useRouter } from 'next/navigation'
 import { clearToken, validatorToken} from '@/utils/validatorToken'
+import { Role } from '@/lib/generated/prisma'
 type User = {
   email: string
   image?: string
   id: string
+  role: Role
 }
 
 type UserContextType = {
-  user: User | null
-  setUser: (user: User | null) => void
+  user: User | null | undefined
+  setUser: (user: User | null | undefined) => void
   logout:()=>void
 }
 
 const UserContext = createContext<UserContextType | undefined>(undefined)
 
 export default function GlobalProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState<User | null >()
   const router=useRouter()
   const logout = async () => {
     await clearToken()

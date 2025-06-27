@@ -13,14 +13,19 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
-
+enum Role {
+  ADMIN
+  USER
+}
 model User {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   email     String   @unique
   username  String?
   password  String
   image     String?
-  blogs     Blog[]
+  blogs      Blog[]
+  role       Role     @default(USER)
+  permission Boolean @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

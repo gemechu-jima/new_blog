@@ -15,7 +15,7 @@ export default function Register() {
       typeof url === 'string' && url.startsWith('https://res.cloudinary.com/')
     )
     if (cloudImage) {
-      formData.append('image', cloudImage || '/assets/userIcon.png')
+      formData.append('image', cloudImage || 'https://res.cloudinary.com/djqmtxpds/image/upload/v1750853074/qezgi2xycvydsa8eefl7.png')
     }
     console.log(formData)
     const result = await createUser(formData);

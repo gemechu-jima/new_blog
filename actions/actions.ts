@@ -1,17 +1,15 @@
 'use server'
 import prisma from "@/lib/prisma";
-import { cookies } from "next/headers";
-import jwt from "jsonwebtoken"
+import { Role } from "@/lib/generated/prisma";
 import { generateToken } from "@/utils/validatorToken";
 import bcrypt from "bcrypt"
 import { revalidatePath } from "next/cache";
-const JWT_SECRET = process.env.JWT_SECRET as string
 
 export async function createUser(formData: FormData) {
     const username = formData.get("username")?.toString();
     const email = formData.get("email")?.toString();
     const password = formData.get("password")?.toString();
-    const image=formData.get('image')?.toString()
+    const image = formData.get('image')?.toString()
     const confirmPassword = formData.get('confirmPassword')?.toString()
     console.log(image)
     if (!email || !password || !confirmPassword) {
@@ -28,8 +26,16 @@ export async function createUser(formData: FormData) {
         }
 
         const hashedPasssword = await bcrypt.hash(password, 10)
+        let role: Role = Role.USER;
+        let permission = false;
+
+        const userCount = await prisma.user.count();
+        if (userCount === 0) {
+            role = Role.ADMIN;
+            permission = true;
+        }
         await prisma.user.create({
-            data: { email, username, image, password: hashedPasssword }
+            data: { email, username, image, password: hashedPasssword, role, permission }
         })
         revalidatePath("/")
         return { success: true, message: "Registration successful" }
@@ -44,7 +50,19 @@ export async function getUsers() {
         const users = await prisma.user.findMany({
             orderBy: {
                 createdAt: "desc"
+            },
+            select: {
+                id: true,
+                email: true,
+                username: true,
+                image: true,
+                role: true,
+                permission: true,
+                password:false,
+                createdAt: true,
+                updatedAt: true,
             }
+
         })
         return users
     } catch (error) {
@@ -86,11 +104,20 @@ export async function updateUser(id: string, formData: FormData) {
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
     const confirmPassword = formData.get('confirmPassword') as string
+
     if (!id) {
         return { success: false, message: "ID not null please correct" }
     }
     if (password !== confirmPassword) {
         return { success: false, message: "Password confirm is not match with password" }
+    }
+    let role: Role = Role.USER;
+    let permission = false;
+
+    const userCount = await prisma.user.count();
+    if (userCount === 0) {
+        role = Role.ADMIN;
+        permission = true;
     }
     try {
         await prisma.user.update({
@@ -98,7 +125,9 @@ export async function updateUser(id: string, formData: FormData) {
             data: {
                 email,
                 username,
-                password
+                password,
+                role,
+                permission
             }
         })
         revalidatePath('/register');
@@ -131,10 +160,10 @@ export async function SignIn(formData: FormData) {
         if (!isPasswordCorrect) {
             return { success: false, message: "Invalid credentials." }
         }
-          revalidatePath('/')
-          await generateToken({email:existUser.email, id:existUser.id, image:existUser.image || ''})
-       
-        return { success: true, message: "Login successful", data:{email:existUser.email, id:existUser.id, image:existUser.image || ''}}
+        revalidatePath('/')
+        await generateToken({ email: existUser.email, id: existUser.id, image: existUser.image || '' , role:existUser.role})
+
+        return { success: true, message: "Login successful", data: { email: existUser.email, id: existUser.id, image: existUser.image || '', role:existUser.role } }
 
     } catch (error) {
         console.error("Error logging in user:", error)

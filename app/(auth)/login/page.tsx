@@ -13,7 +13,7 @@ export default function Login() {
    const result=await SignIn(formData)
    if(result?.success){
     toast.success(result.message)
-    setUser(result.data || null)
+    setUser(result.data)
     router.push('/blog')
    }else{
     toast.error(result?.message)

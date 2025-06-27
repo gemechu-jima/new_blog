@@ -6,7 +6,7 @@ import Links from './Links'
 import { titles } from '../../utils/title'
 export default function Scroll() {
 
-    const [index, setIndex] = useState(0);
+    const [title, setTitle] = useState('');
     const [scroll, setScroll] = useState(0);
     const [maxScroll, setMaxScroll] = useState(1);
     const divRef = useRef<HTMLDivElement>(null);
@@ -52,7 +52,6 @@ export default function Scroll() {
             node.removeEventListener("scroll", onScroll); 
         };
     }, []);
-   console.log(scroll, maxScroll)
     return (
         <div
             className="relative flex items-center justify-center py-2   "
@@ -75,7 +74,7 @@ export default function Scroll() {
                 className=" scroll-bar flex overflow-x-scroll scroll-smooth"
             >
                 {titles.map((t, i) => (
-                    <Links key={t.id + i} link={t.title} />
+                    <Links key={t.id + i} link={t.title} setTitle={setTitle}/>
                 ))}
             </div>
             {scroll < maxScroll && (

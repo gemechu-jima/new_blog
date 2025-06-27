@@ -8,15 +8,17 @@ export interface PropsInput{
     onChange?:(event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export interface BlogProps{
-        id:string
-        name?:string
-        title:string
-        content:string
-        introduction?:string
-        image?:string
-        link?:string
-        author:string
-        published?:boolean
-        userId:string
+export interface BlogProps {
+  id: string
+  name?: string | null
+  title: string
+  content: string
+  introduction: string
+  images: string[]
+  link: string
+  author?: string |null
+  published?: boolean |null
+  userId?: string |null
+  createdAt: Date
+  updatedAt: Date
 }

@@ -1,13 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { validatorToken } from '@/utils/validatorToken'
 import { orderedTitles } from '@/utils/title'
 import { getBlogs, update } from '@/actions/blogsAction'
 import PostBlogForm from '../model/postBlogForm'
 
 export default async function Blog() {
-  await validatorToken()
   const data =await getBlogs()
   // const u=await update()
  
@@ -52,6 +50,7 @@ export default async function Blog() {
   )}
 </div>
         <PostBlogForm/>
+
       </div>
   )
 }
