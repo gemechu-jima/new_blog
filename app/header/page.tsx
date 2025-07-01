@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Logo from './logo/page'
 import Nav from './nav/page'
-import Search from './search/page'
+import Search from './IconSide/page'
 import EveryLink from '../model/EveryLink'
 import ThemeSwitcher from '@/components/theme'
 export default function Header() {
@@ -15,9 +15,9 @@ export default function Header() {
          { openLink && <EveryLink setOpenLink={setOpenLink} />}
          <Logo/>
          <Nav setOpenLink={setOpenLink}/>
-         <div className='flex items-center gap-3'>
+         <div className='flex flex-initial items-center gap-3'>
          <Search/>
-          <ThemeSwitcher/>
+         <ThemeSwitcher/>
          </div>
         </div>
     </div>

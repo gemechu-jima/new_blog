@@ -1,5 +1,4 @@
-
-
+import dynamic from 'next/dynamic';
 import type { Metadata } from "next";
 import "../styles/globals.css";
 import Header from "@/app/header/page"
