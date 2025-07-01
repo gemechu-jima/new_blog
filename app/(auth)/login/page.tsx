@@ -6,8 +6,9 @@ import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { toast } from 'react-toastify'
 import { UseContextProvider } from '@/app/useContext/UseContext'
+import AuthButton from '@/app/ui/AuthButton'
 export default function Login() {
-  const {setUser}=UseContextProvider()
+  const {setUser, user}=UseContextProvider()
  const router=useRouter()
   const handleLogin=async(formData: FormData)=>{
    const result=await SignIn(formData)
@@ -19,6 +20,7 @@ export default function Login() {
     toast.error(result?.message)
    }
   }
+  if(user) return  router.push('/blog')
   return (
     <>
     <form action={handleLogin} className="w-full ">
@@ -46,8 +48,8 @@ export default function Login() {
           />
         </label>
           <button type="submit" className="btn btn-accent">sign in</button>
-          <div className='text-center'>
-            <button>sign in with Goolge</button>
+          <div className='text-center cursor-pointer'>
+            <AuthButton/>
           </div>
           <p className='text-center'>Are you new ? <Link href={'/register'}>create an Account</Link></p>
       

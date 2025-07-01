@@ -1,14 +1,15 @@
 'use client'
 import React from 'react'
 import { toast } from 'react-toastify';
-
+ const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_NAME
+ const uploadPreset = process.env.NEXT_PUBLIC_UPLOAD_PRESET as string
 export default function ImageUpload({ setImages, inputRef }:
   {
     setImages: React.Dispatch<React.SetStateAction< string []>>,
     inputRef?: React.RefObject<HTMLInputElement | null>
   }) {
-     const cloudName = 'djqmtxpds'
-     const uploadPreset = 'blogs_image_upload' 
+    
+     console.log(cloudName, uploadPreset)
   const handleOnChange = async(e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files) return toast.error("please upload image");

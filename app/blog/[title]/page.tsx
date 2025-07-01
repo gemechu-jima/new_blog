@@ -1,55 +1,77 @@
 'use client'
+
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { BlogProps } from '@/types/blog' 
-import {getBlogByTitle} from "@/actions/blogsAction"
+import { BlogProps } from '@/types/blog'
+import { getBlogByTitle } from "@/actions/blogsAction"
+import NotFound from './NotFound'
+
 export default function News() {
-  const [blogByTitle, setBlogByTitle]=useState<BlogProps[] |null >(null)
-  const pramas=useParams()as { title?: string }
-  const title=pramas?.title
-  useEffect(()=>{
-     if (!title) return
-     try {
-       const fetchData=async()=>{
-     const result=await getBlogByTitle(title)
-     if(result.success && result.data){
-      setBlogByTitle(result.data)
-     }
-    }
-    fetchData()
-     } catch (error) {
+  const [blogByTitle, setBlogByTitle] = useState<BlogProps[] | null>(null)
+  const [loading, setLoading] = useState<boolean>(true)
+
+  const params = useParams() as { title?: string }
+  const title = params?.title
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (title) {
+          const result = await getBlogByTitle(title)
+          if (result.success && result.data) {
+            setBlogByTitle(result.data)
+          } else {
+            setBlogByTitle(null)
+          }
+        }
+      } catch (error) {
         console.error("Error fetching blog by title:", error)
-     }
-   
-  },[title])
-   if (!blogByTitle) {
-    return <p className="text-center py-8">Loading blog...</p>
+        setBlogByTitle(null)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [title])
+
+  if (loading) {
+    return <p className="text-center py-10">Loading...</p>
   }
+
+  if (!blogByTitle || blogByTitle.length === 0) {
+  return <NotFound />
+}
 
   return (
     <div>
       {blogByTitle.length}
-       <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mb-2 pb-6 border-b-2 border-b-gray-700">
-          {blogByTitle.map((item) => (
-            <Link
-              key={item.id}
-              href={item.link}
-              className="flex flex-col mt-2 pt-2 gap-2 cursor-pointer shadow-md p-2"
-            >
-           
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mb-6 border-b-2 border-gray-700 pb-6">
+        {blogByTitle.map((item) => (
+          <Link
+            key={item.id}
+            href={item.link}
+            className="flex flex-col gap-2 p-2 rounded shadow-md hover:shadow-lg transition"
+          >
+            {item.images?.[0] ? (
               <Image
                 src={item.images[0]}
-                alt="call to action"
+                alt="Blog image"
                 width={500}
-                height={500}
-                className="rounded-2xl w-96 h-60"
+                height={300}
+                className="rounded-xl w-full h-60 object-cover"
               />
-              <p className='text-ellipsis line-clamp-2'>{item.introduction}</p>
-            </Link>
-          ))}
-        </div>
+            ) : (
+              <div className="w-full h-60 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500">
+                No Image
+              </div>
+            )}
+            <p className="line-clamp-2">{item.introduction}</p>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }

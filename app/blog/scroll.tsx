@@ -54,7 +54,7 @@ export default function Scroll() {
     }, []);
     return (
         <div
-            className="relative flex items-center justify-center py-2   "
+            className="relative flex items-center justify-center py-2 dark:bg-slate-800 bg-slate-200 rounded-md "
         >
             {scroll > 0 && (
                 <div
@@ -71,7 +71,7 @@ export default function Scroll() {
             <div
                 id="page"
                 ref={divRef}
-                className=" scroll-bar flex overflow-x-scroll scroll-smooth"
+                className=" scroll-bar flex overflow-x-scroll scroll-smooth "
             >
                 {titles.map((t, i) => (
                     <Links key={t.id + i} link={t.title} setTitle={setTitle}/>

@@ -9,6 +9,6 @@ export default function Links({link, setTitle}:{link:string, setTitle:(title: st
   }
   return (
     <button onClick={() => {setTitle(link), handleTitle(link)}} 
-    className='capitalize px-2 hover:text-sky-500 hover:border-b-2 border-sky-500'>{link}</button>
+    className='capitalize px-2 hover:text-sky-500 hover:border-b-2 border-sky-500 '>{link}</button>
   )
 }
