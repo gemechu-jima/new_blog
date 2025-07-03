@@ -10,7 +10,6 @@ import { toast } from 'react-toastify'
 export default function PostBlogForm() {
   const [images, setImages] = useState<string[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
-  console.log('images =', images)
   const handleSubmit = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault()
     const formData = new FormData(ev.currentTarget)
@@ -22,6 +21,7 @@ export default function PostBlogForm() {
     const result = await createBlog(formData);
     if (result.success) {
       toast.success(result.message)
+      
     } else {
       toast.error(result.message)
     }

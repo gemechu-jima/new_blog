@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
+import { useRouter } from 'next/navigation';
 
 export default function SearchPage() {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const route=useRouter()
 
   const handleSearch = () => {
     if (!isOpen) {
       setIsOpen(true);
     } else if (searchTerm.trim()) {
-      // Perform your search logic here
-      console.log('Searching for:', searchTerm);
+      route.push(`/blog/${searchTerm}`)
     }
   };
 

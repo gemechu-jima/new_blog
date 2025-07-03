@@ -19,7 +19,7 @@ const toggleTheme=()=>{
 
   return (
     <button onClick={toggleTheme} className='ml-6'>
-       {theme==='dark' ? <BedtimeIcon/> :<SunnyIcon />}
+       {theme==='dark' ?<SunnyIcon /> :<BedtimeIcon/> }
     </button>
   );
 }

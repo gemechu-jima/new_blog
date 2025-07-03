@@ -12,6 +12,7 @@ export async function getBlogs(limit = 15) {
           isEmpty: false,
         },
       },
+      take:limit
     })
     return blogs
   } catch (error) {
@@ -30,8 +31,8 @@ export async function update() {
 
       },
     })
-    return `✅ Updated ${result.count} blogs with createdAt date.`
     console.log(`✅ Updated ${result.count} blogs with createdAt date.`)
+    return `✅ Updated ${result.count} blogs with createdAt date.`
   } catch (error) {
     console.error("❌ Error updating blogs:", error)
   }
@@ -88,7 +89,7 @@ export async function createBlog(formData: FormData) {
   }
 }
 
-export async function getBlogByTitle(title: string) {
+export async function getBlogByTitle(title: string, limit=10) {
   if (!title) {
     return { message: "please title", success: false }
   }
@@ -99,7 +100,9 @@ export async function getBlogByTitle(title: string) {
           equals: title,
           mode: 'insensitive',
         },
-      }
+
+      },
+      take:limit
     })
     if (blogType) {
       return { success: true, message: "please title", data: blogType }
@@ -112,3 +115,4 @@ export async function getBlogByTitle(title: string) {
     return { success: false, error }
   }
 }
+
