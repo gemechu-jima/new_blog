@@ -3,10 +3,10 @@ import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import Input from '../ui/Input'
 import Select from '../ui/Select'
-import TextArea from '../ui/TextArea'
 import ImageUpload from '../ui/ImageUpload'
 import { createBlog } from '@/actions/blogsAction'
 import { toast } from 'react-toastify'
+import TextArea from '../ui/TextArea'
 export default function PostBlogForm() {
   const [images, setImages] = useState<string[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
