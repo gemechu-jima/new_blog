@@ -6,7 +6,7 @@ import Select from '../ui/Select'
 import ImageUpload from '../ui/ImageUpload'
 import { createBlog } from '@/actions/blogsAction'
 import { toast } from 'react-toastify'
-import TextArea from '../ui/TextArea'
+import TextArea from '@/app/ui/TextArea'
 export default function PostBlogForm() {
   const [images, setImages] = useState<string[]>([])
   const inputRef = useRef<HTMLInputElement>(null)
