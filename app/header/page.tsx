@@ -10,7 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Backdrop from '../model/Backdrop'
 import Mobile from './nav/mobile'
 export default function Header() {
-  const [openLink, setOpenLink]=useState(false)
+  const [openLink, setOpenLink]=useState<boolean>(false)
   const [open, setOpen]=useState(false)
   return (
     <>
