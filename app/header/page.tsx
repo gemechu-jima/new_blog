@@ -6,18 +6,19 @@ import Search from './IconSide/page'
 import EveryLink from '../model/EveryLink'
 import ThemeSwitcher from '@/components/theme'
 import MenuIcon from '@mui/icons-material/Menu';
-
+import {usePathname} from 'next/navigation'
 import Backdrop from '../model/Backdrop'
 import Mobile from './nav/mobile'
 export default function Header() {
   const [openLink, setOpenLink]=useState<boolean>(false)
   const [open, setOpen]=useState(false)
+  const pathname=usePathname()
   return (
     <>
      
     <div className='fixed z-100 bg-linear-to-b dark:bg-black bg-white text-black dark:text-white  w-screen h-20 flex text-center inset-x-0 top-0 pt-3'>
         <div className='w-[88%] mx-auto sm:flex justify-between items-center hidden  '>
-         { openLink && <EveryLink setOpenLink={setOpenLink} />}
+         {!pathname?.startsWith('/blog') &&  openLink && <EveryLink setOpenLink={setOpenLink} />}
          <Logo/>
          <Nav setOpenLink={setOpenLink}/>
          <div className='flex flex-initial items-center gap-3'>

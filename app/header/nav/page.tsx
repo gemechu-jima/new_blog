@@ -10,7 +10,7 @@ export default function Nav({ setOpenLink }: { setOpenLink: (ev: boolean) => voi
       <Link href='/'>Home</Link>
       <Link href='/about'>About</Link>
       <Link href='/blog'
-       onMouseEnter={() => setOpenLink(true)}
+        onMouseEnter={() => setOpenLink(true)}
         onMouseLeave={() =>  setOpenLink(false)
         }>Blog</Link>
       <Link href='/podcast'>Podcast</Link>

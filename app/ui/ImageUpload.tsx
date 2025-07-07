@@ -9,7 +9,7 @@ export default function ImageUpload({ setImages, inputRef }:
     inputRef?: React.RefObject<HTMLInputElement | null>
   }) {
     
-     console.log(cloudName, uploadPreset)
+ 
   const handleOnChange = async(e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files) return toast.error("please upload image");

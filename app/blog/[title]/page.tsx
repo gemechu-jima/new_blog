@@ -14,7 +14,8 @@ export default function News() {
 
   const params = useParams() as { title?: string }
   const title = params?.title
-
+   console.log(title, 'title')
+   console.log('blogByTile', blogByTitle)
   useEffect(() => {
     const fetchData = async () => {
       try {
