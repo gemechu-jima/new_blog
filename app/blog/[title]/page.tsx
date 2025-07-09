@@ -42,19 +42,19 @@ export default function News() {
     return <p className="text-center py-10">Loading...</p>
   }
 
-  if (!blogByTitle || blogByTitle.length === 0) {
-  return <NotFound />
-}
+//   if (!blogByTitle || blogByTitle.length === 0) {
+//   return <NotFound />
+// }
 
   return (
     <div>
-      {blogByTitle.length}
+      {blogByTitle?.length}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mb-6 border-b-2 border-gray-700 pb-6">
-        {blogByTitle.map((item) => (
+        {blogByTitle?.map((item) => (
           <Link
             key={item.id}
             href={item.link}
-            className="flex flex-col gap-2 p-2 rounded shadow-md hover:shadow-lg transition"
+            className="flex flex-col gap-2 p-2 rounded shadow-md hover:shadow-lg transition cursor-pointer"
           >
             {item.images?.[0] ? (
               <Image
