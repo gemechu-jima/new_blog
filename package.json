@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "next build && npm install && npx prisma generate",
     "start": "next start",
     "lint": "next lint",
     "build:seed": "tsc -p tsconfig.seed.json",
