@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Blog for All",
   description: "Provide Generate knowlegde",
 };
-let g = 'dark:bg-white bg-black dark:text-black text-white'
+const g = 'dark:bg-white bg-black dark:text-black text-white'
 export default function RootLayout({
   children,
 }: Readonly<{

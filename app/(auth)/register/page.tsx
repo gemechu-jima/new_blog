@@ -25,7 +25,7 @@ export default function Register() {
       toast.error(result?.message);
     }
   };
-  let p = '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
+  const p = '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}'
   const triggerUpload = () => {
     inputRef.current?.click()
   }

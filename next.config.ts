@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-
+eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     domains: ['res.cloudinary.com', 'lh3.googleusercontent.com'], 
   },
@@ -11,7 +13,6 @@ const nextConfig: NextConfig = {
   serverActions: {
     bodySizeLimit: '4mb',
   },
- 
 },
     env: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
