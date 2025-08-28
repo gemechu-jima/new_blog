@@ -1,7 +1,6 @@
 'use server'
 import { cookies } from "next/headers";
 import jwt from 'jsonwebtoken'
-import { revalidatePath } from "next/cache";
 import { Role } from "@/lib/generated/prisma";
 const JWT_SECRET = process.env.JWT_SECRET;
 if (!JWT_SECRET) {
@@ -10,7 +9,7 @@ if (!JWT_SECRET) {
 
 export const validatorToken=async()=>{
     const token = (await cookies()).get('token')?.value
-    let user: any = null
+    let user = null
 
   if (token) {
     try {
