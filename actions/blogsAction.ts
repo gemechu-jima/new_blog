@@ -3,6 +3,7 @@ import prisma from "@/lib/prisma"
 import { revalidatePath } from "next/cache"
 import { cookies } from 'next/headers'
 import jwt from 'jsonwebtoken'
+import { NextApiRequest, NextApiResponse } from "next"
 const JWT_SECRET = process.env.JWT_SECRET || 'your_secret_key'
 export async function getBlogs(limit = 15) {
   try {
@@ -115,4 +116,6 @@ export async function getBlogByTitle(title: string, limit=10) {
     return { success: false, error }
   }
 }
+
+
 

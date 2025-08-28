@@ -15,35 +15,59 @@ export default function News() {
   const title = params?.title
    console.log(title, 'title')
    console.log('blogByTile', blogByTitle)
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (title) {
-          const result = await getBlogByTitle(title)
-          if (result.success && result.data) {
-            setBlogByTitle(result.data)
-          } else {
-            setBlogByTitle(null)
-          }
-        }
-      } catch (error) {
-        console.error("Error fetching blog by title:", error)
-        setBlogByTitle(null)
-      } finally {
-        setLoading(false)
-      }
-    }
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       if (title) {
+  //         const result = await getBlogByTitle(title)
+  //         if (result.success && result.data) {
+  //           setBlogByTitle(result.data)
+  //         } else {
+  //           setBlogByTitle(null)
+  //         }
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching blog by title:", error)
+  //       setBlogByTitle(null)
+  //     } finally {
+  //       setLoading(false)
+  //     }
+  //   }
 
-    fetchData()
-  }, [title])
+  //   fetchData()
+  // }, [title])
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      if (title) {
+        const res = await fetch(`/api/blogByTitle?title=${encodeURIComponent(title)}&limit=10`)
+        const result = await res.json()
+        console.log(result)
+        if (result.success && result.data) {
+          setBlogByTitle(result.data)
+        } else {
+          setBlogByTitle(null)
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching blog by title:", error)
+      setBlogByTitle(null)
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  fetchData()
+}, [title])
 
   if (loading) {
     return <p className="text-center py-10">Loading...</p>
   }
 
-//   if (!blogByTitle || blogByTitle.length === 0) {
-//   return <NotFound />
-// }
+  if (!blogByTitle || blogByTitle.length === 0) {
+  return <NotFound />
+}
 
   return (
     <div>
