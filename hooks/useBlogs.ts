@@ -23,8 +23,8 @@ export default function useBlogs({limit=10}:{limit:number}) {
         setData(result);
         localStorage.setItem('blogs', JSON.stringify(result));
       }
-    } catch (err) {
-      setError('Failed to load blogs.');
+    } catch (err:unknown) {
+      setError(`'Failed to load blogs.' ${err}`);
     } finally {
       setLoading(false);
     }
