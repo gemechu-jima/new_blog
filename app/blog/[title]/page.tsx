@@ -13,30 +13,6 @@ export default function News() {
 
   const params = useParams() as { title?: string }
   const title = params?.title
-   console.log(title, 'title')
-   console.log('blogByTile', blogByTitle)
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       if (title) {
-  //         const result = await getBlogByTitle(title)
-  //         if (result.success && result.data) {
-  //           setBlogByTitle(result.data)
-  //         } else {
-  //           setBlogByTitle(null)
-  //         }
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching blog by title:", error)
-  //       setBlogByTitle(null)
-  //     } finally {
-  //       setLoading(false)
-  //     }
-  //   }
-
-  //   fetchData()
-  // }, [title])
-
 useEffect(() => {
   const fetchData = async () => {
     try {
