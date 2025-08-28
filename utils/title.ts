@@ -80,4 +80,4 @@ export const orderedTitles = [
   "Travel",
 ]
 
-export const let='1';
+export const lets=1;

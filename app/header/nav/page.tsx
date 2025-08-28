@@ -16,8 +16,9 @@ export default function Nav({ setOpenLink }: { setOpenLink: (ev: boolean) => voi
       <Link href='/podcast'>Podcast</Link>
       <Link href='/contact'>Contact</Link>
      {user?.role==='ADMIN' && <Link href={'/adminpanel'}>Admin Panel</Link>}
-    {user?.email && <button className="" onClick={()=> {
+    {user?.email && <button className="cursor-pointer" onClick={()=> {
       const modal = document.getElementById('my_modal_3') as HTMLDialogElement
+      console.log(modal)
       modal?.showModal()
      }}>post blog</button>}
     </div>

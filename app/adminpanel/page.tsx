@@ -9,10 +9,9 @@ import { toast } from 'react-toastify'
 export default function AdminPanelPage() {
   const { user } = UseContextProvider()
   const router = useRouter()
-console.log(user)
   useEffect(() => {
     if (user?.role !== 'ADMIN') {
-      // toast.error('You do not have permission to access this page')
+      toast.error('You do not have permission to access this page')
       router.push('/')
     }
   }, [user, router])
