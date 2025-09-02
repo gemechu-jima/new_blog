@@ -30,3 +30,6 @@
   .scroll-bar::-webkit-scrollbar{
     display: none;
    }
+.sim{
+  background:"#ff"
+}
