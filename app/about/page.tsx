@@ -221,11 +221,11 @@ export default function About() {
       <div className="mt-10 text-center pb-3">
         <h2 className="text-sky-500">Our Team</h2>
         <p className="text-4xl">Our Dedicated Team </p>
-        <div className="w-[60%] mx-auto flex gap-5 mt-10">
+        <div className="w-[60%] mx-auto grid sm:grid-cols-4 md:grid-cols-5 grid-cols-1 gap-5 mt-10">
           {Array(5)
             .fill(0)
             .map((_, i) => (
-              <div key={i}>
+              <div key={i} className="">
                 <Image
                   key={i}
                   src={"/assets/images/men2.jpg"}
