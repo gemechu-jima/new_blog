@@ -1,10 +1,42 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Services, experience } from "../../utils/db";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 
+const comments = [
+  {
+    id: 1,
+    comment:
+      "You can do it in the same way you would leave a comment on any other blogger blog.",
+    image: "/assets/images/female.jpg",
+    name: "I_Like_Slug",
+  },
+  {
+    id: 2,
+    comment:
+      "The key to successful social media marketing is consistency and authenticity",
+    image: "/assets/bg-rm.png",
+    name: "Low-Selection-2903",
+  },
+  {
+    id: 3,
+    comment:
+      "Recently changed my blog from headless WP / Gatsby to Next and MDX. I love it.",
+    image: "/assets/phone.png",
+    name: "4ever_youngz",
+  },
+  {
+    id: 4,
+    comment:
+      "Use Next.js, use markdown files and deploy to Vercel for free. Just add markdown files whenever you want to add a new post and redeploy.",
+    image: "/assets/images/men2.jpg",
+    name: "InfinityByZero",
+  },
+];
 export default function About() {
+  const [index, setIndex] = useState(1);
   return (
     <div className="w-[90%] mx-auto   pb-10  ">
       <div className="relative   w-full h-[300px]">
@@ -132,7 +164,6 @@ export default function About() {
               key={item.id}
               className="w-full flex items-center justify-between rounded-2xl shadow-2xl bg-black dark:bg-white text-white dark:text-black p-4"
             >
-            
               <div className="flex-1  p-4 rounded-xl">
                 <h2 className="text-2xl font-extrabold capitalize mb-2">
                   {item.title}
@@ -163,24 +194,26 @@ export default function About() {
               <AutoAwesomeIcon />
             </p>
             <p className="text-lg font-light italic">
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas
-              corporis tempore nostrum sapiente perferendis inventore libero
-              dolorum obcaecati laboriosam blanditiis."
+              "
+              {comments.find((c) => c.id === index)?.comment ||
+                comments[0].comment}
+              "
             </p>
           </div>
           <div className="flex gap-3">
-            {Array(5)
-              .fill(0)
-              .map((_, i) => (
-                <Image
-                  key={i}
-                  src={"/assets/images/female.jpg"}
-                  alt=""
-                  width={40}
-                  height={40}
-                  className="w-10 h-10 rounded-full"
-                />
-              ))}
+            {comments.map((item, i) => (
+              <Image
+                key={i}
+                src={item.image}
+                alt={`Quote author ${i + 1}`}
+                width={40}
+                height={40}
+                className={`w-10 h-10 rounded-full cursor-pointer border-2 ${
+                  index === item.id ? "border-blue-500" : "border-transparent"
+                }`}
+                onClick={() => setIndex(item.id)}
+              />
+            ))}
           </div>
         </div>
       </div>
