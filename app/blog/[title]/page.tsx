@@ -1,17 +1,18 @@
 "use client";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import Image from "next/image";
 import Link from "next/link";
 import { BlogProps } from "@/types/blog";
 import { getBlogByTitle } from "@/actions/blogsAction";
 import NotFound from "./NotFound";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
+import { UseContextProvider } from "@/app/useContext/UseContext";
 export default function News() {
   const [blogByTitle, setBlogByTitle] = useState<BlogProps[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-
+  const {user}=UseContextProvider()
   const params = useParams() as { title?: string };
   const title = params?.title;
   useEffect(() => {
@@ -89,7 +90,8 @@ export default function News() {
               </div>
             )}
             <p className="line-clamp-2">{item.introduction}</p>
-            <div className="absolute top-2 right-2 hidden group-hover:flex gap-3 bg-white/50 p-2 rounded-lg shadow-md transition-opacity duration-200">
+           { user?.role==='ADMIN' &&
+           <div className="absolute top-2 right-2 hidden group-hover:flex gap-3 bg-white/50 p-2 rounded-lg shadow-md transition-opacity duration-200">
               <button
                 onClick={(ev) => {
                   ev.preventDefault();
@@ -107,7 +109,7 @@ export default function News() {
               >
                 <EditIcon />
               </button>
-            </div>
+            </div>}
           </Link>
         ))}
       </div>
