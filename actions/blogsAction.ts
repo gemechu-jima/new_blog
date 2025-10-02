@@ -117,5 +117,18 @@ export async function getBlogByTitle(title: string, limit=10) {
   }
 }
 
-
+export async function deleteBlog(id:string){
+ if(!id) return {message:"This id you try to delete is not found"}
+ try {
+ await prisma.blog.delete({
+    where:{
+      id
+    }
+  })
+   return { success: true, message: `The blog is Deleted successfull ${id}`, }
+ } catch (error) {
+    console.log(error)
+    return { success: false, error }
+ }
+}
 

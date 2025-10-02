@@ -38,6 +38,7 @@ export default async function Blog() {
                 className="rounded-2xl w-96 h-60"
               />
               <p className='text-ellipsis line-clamp-2'>{item.introduction}</p>
+             
             </Link>
           ))}
           
