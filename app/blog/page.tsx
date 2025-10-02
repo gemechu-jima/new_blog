@@ -41,9 +41,9 @@ export default async function Blog() {
             </Link>
           ))}
           
-          <button className="absolute right-4 bottom-2 text-sky-500 capitalize cursor-pointer">
+          <Link href={`/blog/${title}`} className="absolute right-4 bottom-2 text-sky-500 capitalize cursor-pointer">
             see more
-          </button>
+          </Link>
         </div>
       </div>
     ) : null
