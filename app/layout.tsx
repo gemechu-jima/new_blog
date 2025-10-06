@@ -20,7 +20,7 @@ export default function RootLayout({
       <body>
         <ClientProviders>
           <Header />
-          <div className="mt-20 dark:bg-black bg-white text-black dark:text-white">
+          <div className="mt-16 dark:bg-black bg-white text-black dark:text-white">
             {children}
           </div>
           <Footer />
