@@ -98,13 +98,13 @@ export default function News() {
                   ev.stopPropagation();
                   handleDeleteBlogById(item.id);
                 }}
-                className="text-red-600 hover:text-red-800 p-1 rounded-full hover:bg-red-100 transition"
+                className="text-red-500 hover:text-red-700 p-1 rounded-full hover:bg-red-100 transition"
                 title="Delete"
               >
                 <DeleteIcon />
               </button>
               <button
-                className="text-blue-600 hover:text-blue-800 p-1 rounded-full hover:bg-blue-100 transition"
+                className="text-blue-500 hover:text-blue-700 p-1 rounded-full hover:bg-blue-100 transition"
                 title="Edit"
               >
                 <EditIcon />
