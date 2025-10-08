@@ -1,8 +1,10 @@
 "use client"
-import React from 'react'
+import React,{useState} from 'react'
 import Link from 'next/link'
+import { menuHeaders } from '@/utils/menuHeaders'
 import { UseContextProvider } from '@/app/useContext/UseContext'
 export default function Nav({ setOpenLink }: { setOpenLink: (ev: boolean) => void }) {
+   const [hoveredMenu, setHoveredMenu] = useState(null);
   const{ user}=UseContextProvider()
  
   return (
