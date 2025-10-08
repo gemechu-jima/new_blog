@@ -30,5 +30,10 @@ export const menuHeaders=[
         { name: 'Life', href: '/podcast/life' },
     ]},
     { name: 'Contact', href: '/contact' },
+    {name:'Admin Panel', href:'/adminpanel', icon:ArrowDropDownIcon, submenu:[
+        { name: 'Users', href: '/adminpanel/users' },
+        { name: 'Blogs', href: '/adminpanel/blogs' },
+
+    ]}
 
 ]

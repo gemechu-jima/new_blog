@@ -1,8 +1,10 @@
 "use client";
 import React, { useState, useRef } from "react";
+import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import { menuHeaders } from "@/utils/menuHeaders";
 import { UseContextProvider } from "@/app/useContext/UseContext";
+import SubNav from "./subNav";
 export default function Nav({
   setOpenLink,
 }: {
@@ -11,6 +13,7 @@ export default function Nav({
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { user } = UseContextProvider();
+  const pathname = usePathname();
   const handleMouseEnter = (menuLabel: string) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
@@ -33,19 +36,14 @@ export default function Nav({
           onMouseEnter={() => handleMouseEnter(menu.name)}
           onMouseLeave={() => handleMouseLeave()}
         >
+        {menu.name === 'Admin Panel' ? (
+          user?.role === 'ADMIN' && <Link href={menu.href}>{menu.name}</Link>
+        ) : (
           <Link href={menu.href}>{menu.name}</Link>
-          {menu.submenu && hoveredMenu === menu.name && (
-            <div className="absolute top-full left-0 bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 z-10">
-              {menu.submenu.map((sub) => (
-                <Link
-                  key={sub.name}
-                  href={sub.href}
-                  className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700"
-                >
-                  {sub.name}
-                </Link>
-              ))}
-            </div>
+        )}
+
+          {menu.submenu && hoveredMenu === menu.name && !pathname?.startsWith(menu.href) && (
+           <SubNav submenu={menu.submenu} />
           )}
         </div>
       ))}
