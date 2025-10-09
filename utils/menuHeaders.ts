@@ -3,7 +3,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 export const menuHeaders=[
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Blog', href: '/blog' , icon:ArrowDropDownIcon, submenu: [
+    { name: 'Blog', href: '/blog' , submenu: [
         { name: 'Tech', href: '/blog/tech' },
         { name: 'Life', href: '/blog/life' },
         { name: 'Travel', href: '/blog/travel' },
@@ -25,12 +25,12 @@ export const menuHeaders=[
         { name: 'Movies', href: '/blog/movies' },
         { name: 'Books', href: '/blog/books' },
     ]},
-    { name: 'Podcast', href: '/podcast' ,icon:ArrowDropDownIcon, submenu: [
+    { name: 'Podcast', href: '/podcast' , submenu: [
         { name: 'Tech', href: '/podcast/tech' },
         { name: 'Life', href: '/podcast/life' },
     ]},
     { name: 'Contact', href: '/contact' },
-    {name:'Admin Panel', href:'/adminpanel', icon:ArrowDropDownIcon, submenu:[
+    {name:'Admin Panel', href:'/adminpanel', submenu:[
         { name: 'Users', href: '/adminpanel/users' },
         { name: 'Blogs', href: '/adminpanel/blogs' },
 

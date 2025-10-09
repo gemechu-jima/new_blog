@@ -1,7 +1,9 @@
 "use client";
 import React, { useState, useRef } from "react";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
 import Link from "next/link";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import { menuHeaders } from "@/utils/menuHeaders";
 import { UseContextProvider } from "@/app/useContext/UseContext";
 import SubNav from "./subNav";
@@ -36,15 +38,26 @@ export default function Nav({
           onMouseEnter={() => handleMouseEnter(menu.name)}
           onMouseLeave={() => handleMouseLeave()}
         >
-        {menu.name === 'Admin Panel' ? (
-          user?.role === 'ADMIN' && <Link href={menu.href}>{menu.name}</Link>
-        ) : (
-          <Link href={menu.href}>{menu.name}</Link>
-        )}
-
-          {menu.submenu && hoveredMenu === menu.name && !pathname?.startsWith(menu.href) && (
-           <SubNav submenu={menu.submenu} />
+          {menu.name === "Admin Panel" ? (
+            user?.role === "ADMIN" && <Link href={menu.href}>{menu.name}</Link>
+          ) : (
+            <Link href={menu.href}>
+              {menu.name}
+              {menu.submenu &&
+                !pathname?.startsWith(menu.href) &&
+                (hoveredMenu === menu.name ? (
+                  <ArrowDropDownIcon />
+                ) : (
+                  <ArrowRightIcon />
+                ))}
+            </Link>
           )}
+
+          {menu.submenu &&
+            hoveredMenu === menu.name &&
+            !pathname?.startsWith(menu.href) && (
+              <SubNav submenu={menu.submenu} />
+            )}
         </div>
       ))}
     </nav>
