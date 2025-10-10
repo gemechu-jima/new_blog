@@ -33,6 +33,8 @@ export const menuHeaders=[
     {name:'Admin Panel', href:'/adminpanel', submenu:[
         { name: 'Users', href: '/adminpanel/users' },
         { name: 'Blogs', href: '/adminpanel/blogs' },
+        { name: 'Podcasts', href: '/adminpanel/podcasts' },
+        {name:'create Blog', href:'/adminpanel/createblog'}
 
     ]}
 

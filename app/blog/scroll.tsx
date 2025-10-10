@@ -54,7 +54,7 @@ export default function Scroll() {
     }, []);
     return (
         <div
-            className="relative flex items-center justify-center py-2 dark:bg-slate-800 bg-slate-200 rounded-md "
+            className="relative flex items-center justify-center py-3 dark:bg-slate-800 bg-slate-200 rounded-md "
         >
             {scroll > 0 && (
                 <div

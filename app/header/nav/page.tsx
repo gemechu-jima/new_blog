@@ -39,7 +39,16 @@ export default function Nav({
           onMouseLeave={() => handleMouseLeave()}
         >
           {menu.name === "Admin Panel" ? (
-            user?.role === "ADMIN" && <Link href={menu.href}>{menu.name}</Link>
+            user?.role === "ADMIN" &&
+             <Link href={menu.href}>{menu.name}
+             {menu.submenu &&
+                !pathname?.startsWith(menu.href) &&
+                (hoveredMenu === menu.name ? (
+                  <ArrowDropDownIcon />
+                ) : (
+                  <ArrowRightIcon />
+                ))}
+             </Link>
           ) : (
             <Link href={menu.href}>
               {menu.name}
