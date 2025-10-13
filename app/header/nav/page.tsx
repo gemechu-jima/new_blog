@@ -39,16 +39,20 @@ export default function Nav({
           onMouseLeave={() => handleMouseLeave()}
         >
           {menu.name === "Admin Panel" ? (
-            user?.role === "ADMIN" &&
-             <Link href={menu.href}>{menu.name}
-             {menu.submenu &&
-                !pathname?.startsWith(menu.href) &&
-                (hoveredMenu === menu.name ? (
-                  <ArrowDropDownIcon />
-                ) : (
-                  <ArrowRightIcon />
-                ))}
-             </Link>
+            user?.role === "ADMIN" && (
+              <>
+                <Link href={menu.href}>
+                  {menu.name}
+                  {menu.submenu &&
+                    !pathname?.startsWith(menu.href) &&
+                    (hoveredMenu === menu.name ? (
+                      <ArrowDropDownIcon />
+                    ) : (
+                      <ArrowRightIcon />
+                    ))}
+                </Link>
+              </>
+            )
           ) : (
             <Link href={menu.href}>
               {menu.name}
@@ -61,7 +65,7 @@ export default function Nav({
                 ))}
             </Link>
           )}
-
+     
           {menu.submenu &&
             hoveredMenu === menu.name &&
             !pathname?.startsWith(menu.href) && (
@@ -69,6 +73,17 @@ export default function Nav({
             )}
         </div>
       ))}
+       {user?.email  && (
+        <button
+          className="cursor-pointer ml-2"
+          onClick={() => {
+            const modal = document.getElementById('my_modal_3') as HTMLDialogElement;
+            modal?.showModal();
+          }}
+        >
+          Post Blog
+        </button>
+      )}
     </nav>
   );
 }
@@ -82,9 +97,9 @@ export default function Nav({
 //     <Link href='/podcast'>Podcast</Link>
 //     <Link href='/contact'>Contact</Link>
 //    {user?.role==='ADMIN' && <Link href={'/adminpanel'}>Admin Panel</Link>}
-//   {user?.email && <button className="cursor-pointer" onClick={()=> {
-//     const modal = document.getElementById('my_modal_3') as HTMLDialogElement
-//     console.log(modal)
-//     modal?.showModal()
-//    }}>post blog</button>}
+// {user?.email && <button className="cursor-pointer" onClick={()=> {
+//   const modal = document.getElementById('my_modal_3') as HTMLDialogElement
+//   console.log(modal)
+//   modal?.showModal()
+//  }}>post blog</button>}
 //   </div>
